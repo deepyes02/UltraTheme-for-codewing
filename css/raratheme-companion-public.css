@@ -48,8 +48,9 @@
 
 .odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner,
 .odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
-    display: block;
-    -webkit-backface-visibility: hidden;
+	display: block;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
 
 .odometer.odometer-auto-theme .odometer-digit .odometer-value,
