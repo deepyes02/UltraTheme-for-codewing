@@ -1,1 +1,1 @@
-<h1>Hello world from the template</h1>
+<h3>Here you can manage your homepage intro section that appears below the CTA.</h3>

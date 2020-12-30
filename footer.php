@@ -64,9 +64,7 @@
 		</footer> <!-- .site-footer -->
 	</div> <!-- #page -->
 
-	<!-- JS FILES -->
-	<script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/jquery-1.12.0.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/custom.js"></script>
+
     <?php wp_footer();?>
 </body>
 </html>
