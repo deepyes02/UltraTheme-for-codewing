@@ -8,7 +8,6 @@
  * @param string $io Whether input or output
  * @param string $msg Information describing logging reason.
  */
-
 function ultra_load_scripts()
 {
 
@@ -24,6 +23,7 @@ function ultra_load_scripts()
         wp_enqueue_script('ultra_custom_script', get_template_directory_uri() . '/js/custom.js', array(), 1.12, true);
     }
 }
+add_action('wp_enqueue_scripts', ultra_load_scripts());
 
 /**
  * is_admin() - checks whether the person is logged in before executing scripts.
@@ -33,7 +33,7 @@ function ultra_load_scripts()
  * @param array array of various options
  * @param string $values
  */
-add_action('wp_enqueue_scripts', ultra_load_scripts());
+add_action('after-setup-theme', ultra_theme_support());
 
 if (!function_exists('ultra_theme_support')) {
     function ultra_theme_support()
@@ -74,7 +74,6 @@ if (!function_exists('ultra_theme_support')) {
     }
 }
 
-add_action('after-setup-theme', ultra_theme_support());
 
 /**
  * customize
