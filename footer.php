@@ -16,31 +16,42 @@
 					<div class="col">
 						<section class="widget widget_recent_entries">		
 							<h2 class="widget-title" itemprop="name">Recent Posts</h2>		
-							<ul>
-								<li>
-									<a href="#">Exploring Untravelled Destinations</a>
-									<span class="post-date">February 12, 2018</span>
-								</li>
-								<li>
-									<a href="#">This theme recommends the following plugins</a>
-									<span class="post-date">February 12, 2018</span>
-								</li>
-								<li>
-									<a href="#">Hello world!</a>
-									<span class="post-date">November 22, 2017</span>
-								</li>
-							</ul>
+							<?php
+								$the_query = new WP_Query((array(
+									'post_type'	=> 'post',
+									'posts_per_page'	=> 3
+								)));
+								if($the_query->have_posts()) {
+									?>
+									<ul class="post_title">	
+									<?php
+									while ($the_query->the_post()) {
+										?>
+										<li>
+											<?php echo get_the_title();?>
+										</li>
+
+										
+										<?php
+									}
+									?>
+									</ul>
+									<?php
+								}
+								wp_reset_postdata();
+								?>
 						</section>
 					</div>
 					<div class="col">
 						<section class="widget widget_categories">
-							<h2 class="widget-title" itemprop="name">Categories</h2>
-							<ul>
-								<li class="cat-item"><a href="#">Entertainment</a> (1)</li>
-								<li class="cat-item"><a href="#">Finance</a> (2)</li>
-								<li class="cat-item"><a href="#">Politics</a> (2)</li>
-								<li class="cat-item"><a href="#">Uncategorized</a> (3)</li>
-							</ul>
+						<h2 class="widget-title" itemprop="name">Categories</h2>
+							<?php 
+							$args = array(
+								'show_count' => true,
+								'title_li'	=> ''
+							);
+							wp_list_categories($args);
+							?>
 						</section>
 					</div>
 				</div>
@@ -51,13 +62,9 @@
 						<span>© 2018 <a href="#">Super Ultra Light</a> - All Rights Reserved. </span><a href="#" target="_blank"> Super Ultra Light</a> by Rara Themes. Powered by <a href="#" target="_blank">WordPress</a>. <a class="privacy-policy-link" href="#">Privacy Policy</a>               
 					</div>
 					<div class="footer-social">
-						<ul class="social-list">
-							<li><a data-title="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a data-title="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-							<li><a data-title="google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-							<li><a data-title="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li><a data-title="pinterest" href="#"><i class="fab fa-pinterest"></i></a></li>
-						</ul>
+						<nav class="social-list">
+							<?php wp_nav_menu(array('theme_location' => 'social')) ?>
+						</nav>
 					</div>
 				</div>
 			</div>

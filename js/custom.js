@@ -32,7 +32,7 @@ jQuery(document).ready(function($){
 //sticky social icons
 if($('body').hasClass('rightsidebar')){ //this condition should be removed in development
 	if($(window).width() > 640){
-		var sidebar = new StickySidebar('.sticky-inner', {
+		new StickySidebar('.sticky-inner', {
 			topSpacing: 20,
 			bottomSpacing: 20,
 			containerSelector: '.site-main',

@@ -17,8 +17,7 @@
 				</div>
 				<div class="site-branding logo-text">
 					<div class="site-logo">
-						<a href="<?php echo esc_html(get_home_url());?>" title="<?php echo get_bloginfo('title');?>">
-							<!-- <img src="<?php //echo get_template_directory_uri();?>/images/site-logo.png" alt="super ultra theme"> -->
+						<a href="<?php echo get_home_url();?>" title="<?php echo get_bloginfo('title');?>">
 							<img src="<?php echo get_site_icon_url(200);?>"/>
 
 						</a>
@@ -32,84 +31,12 @@
 				</div> <!-- .site-branding -->
 				<div class="menu-wrap">
 					<nav class="main-navigation">
-						<button class="menu-toggle">
+					<button class="menu-toggle">
 							<span class="toggle-bar"></span>
 							<span class="toggle-bar"></span>
 							<span class="toggle-bar"></span>
 						</button>
-						<ul class="nav-menu">
-							<li class="current-menu-item">
-								<a href="index.html">Home</a>
-							</li>
-							<li>
-								<a href="#">About</a>
-							</li>
-							<li class="menu-item-has-children">
-								<a href="#">Services</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="#">Child Menu One</a>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Child Menu Two</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="#">Grandchild Menu One</a>
-											</li>
-											<li>
-												<a href="#">Grandchild Menu Two</a>
-											</li>
-											<li>
-												<a href="#">Grandchild Menu Three</a>
-											</li>
-											<li>
-												<a href="#">Grandchild Menu Four</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Child Menu Three</a>
-									</li>
-									<li>
-										<a href="#">Child Menu Four</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="#">Blog</a>
-							</li>
-							<li class="menu-item-has-children">
-								<a href="#">Contact</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="#">Child Menu One</a>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Child Menu Two</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="#">Grandchild Menu One</a>
-											</li>
-											<li>
-												<a href="#">Grandchild Menu Two</a>
-											</li>
-											<li>
-												<a href="#">Grandchild Menu Three</a>
-											</li>
-											<li>
-												<a href="#">Grandchild Menu Four</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Child Menu Three</a>
-									</li>
-									<li>
-										<a href="#">Child Menu Four</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<?php wp_nav_menu(array('theme_location' => 'primary')) ?>
 					</nav>
 					<div class="header-search">
 						<span class="search-toggle">
