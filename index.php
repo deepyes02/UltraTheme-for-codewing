@@ -2,23 +2,20 @@
 ?>
 <p>The content</p>
 <?php
-$thequery = new WP_Query(array(
-      'post_type' => 'post',
-      'posts_per_page' => 6
-));
-
-if ($thequery->have_posts()){
-      while ($thequery->have_posts()){
-            $thequery->the_post();
-            ?>
-            <h2><?php echo the_title();?></h2>
-            <p><?php echo the_content();?><p>
+if (have_posts()) {
+      while (have_posts()) {
+            the_post();
+?>
+            <a href="<?php echo get_permalink($ID);?>"><h2><?php echo the_title(); ?></h2></a>
+            <p><?php echo the_excerpt(); ?><p>
             <?php
+
       }
 }
 
 
 
-?>
 
-<?php get_footer();?>
+            ?>
+
+            <?php get_footer(); ?>
