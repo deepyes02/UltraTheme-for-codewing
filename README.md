@@ -10,6 +10,7 @@
 * Go to the "AUTHOR INTRO" Section in Settings and input right name, picture and description.
 * Post at least 6 reasons in "OFFERING" Section in Admin Panel, with png thumbnails.
 * Item 2b
+* Change page template view from __default__ to __list__ to see a different blog display style.
 ###### This is a Heading h6
 
 ## Challenges
