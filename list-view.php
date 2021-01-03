@@ -1,8 +1,13 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: Blog List View
+*/
+
+get_header('list'); ?>
 <div class="site-banner">
 	<div class="banner-item">
 		<img src="<?php echo get_template_directory_uri(); ?>/images/banner-img.jpg" alt="banner">
-		<div class="banner-caption center">
+		<div class="banner-caption left">
 			<div class="container">
 				<h1 class="title">
 					<a href="#">Content Marketing & SEO Done Right</a>
@@ -301,7 +306,7 @@
 			<section class="widget widget_recent_entries">
 				<h2 class="widget-title" itemprop="name">Recent Posts</h2>
 				<ul>
-				<?php
+                        <?php
 					$thequery = new WP_Query(array(
 						'post_type' => 'post',
 						'posts_per_page' => 4
@@ -343,3 +348,5 @@
 </div> <!-- .site-content -->
 
 <?php get_footer(); ?>
+
+
