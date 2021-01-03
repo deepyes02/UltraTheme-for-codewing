@@ -39,7 +39,9 @@ if ($thequery->have_posts()){
 						while ($thequery->have_posts()){
 							$thequery->the_post();
 							?>
-							<li><a href="<?php echo the_title();?>"><?php echo the_title();?></a></li>
+							<li><a href="<?php echo the_title();?>"><?php echo the_title();?></a><br/>
+							<span><?php echo get_the_date();?></span>
+						</li>
 							<?php
 							}
 					}

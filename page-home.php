@@ -92,106 +92,44 @@
 				<section class="widget widget_text">
 					<h2 class="widget-title">What do you need help with now?</h2>
 					<div class="textwidget">
-						<p>Get evidence-based collection of articles on a topic sent directly to you in one email.</p>
+						<p>We have been trusted by our partners and clients for numerous of reasons. Here's why you should choose us too.</p>
 					</div>    		
 				</section>
-				<section class="widget widget_rrtc_icon_text_widget">        
+				<?php
+				$the_query = new WP_Query((array(
+						'post_type'		=> 'Offering',
+						'posts_per_page'	=> 6
+				)));
+
+				if($the_query->have_posts()){
+					while($the_query->have_posts()){
+						$the_query->the_post();
+						?>
+						<section class="widget widget_rrtc_icon_text_widget">        
 					<div class="rtc-itw-holder">
 						<div class="rtc-itw-inner-holder">
 							<div class="text-holder">
-								<h2 class="widget-title" itemprop="name">Generate Better Plans</h2>
+								<a href="<?php echo get_permalink($id);?>"><h2 class="widget-title" itemprop="name"><?php echo get_the_title();?></h2></a>
 								<div class="content">
-									<p>Use advanced Task Management tools, Gantt Charts or Kanban Boards to create accurate plans and schedules, so each member of your team knows exactly what to do and when.</p>
+									<p><?php
+										$content = get_the_content();
+									 echo mb_strimwidth($content, 0, 160,'...');?>
+									 </p>
 								</div>
-								<a class="btn-readmore" href="#" target="_blank">Learn More</a>                              
+								<a class="btn-readmore" href="<?php echo get_permalink($id);?>" target="_blank">Learn More</a>                         
 							</div>
-							<div class="icon-holder">
-								<span class="fab fa-android"></span>
-								<!-- <img src="images/calendar.png" alt="Generate Better Plans"> -->
-							</div>
+							<figure class="icon-holder">
+								<?php the_post_thumbnail();?>
+							</figure>
 						</div>
 					</div>
 				</section>
-				<section class="widget widget_rrtc_icon_text_widget">        
-					<div class="rtc-itw-holder">
-						<div class="rtc-itw-inner-holder">
-							<div class="text-holder">
-								<h2 class="widget-title" itemprop="name">Improve Communication</h2>
-								<div class="content">
-									<p>Use advanced Task Management tools, Gantt Charts or Kanban Boards to create accurate plans and schedules, so each member of your team knows exactly what to do and when.</p>
-								</div>
-								<a class="btn-readmore" href="#" target="_blank">Learn More</a>                              
-							</div>
-							<div class="icon-holder">
-								<img src="<?php echo get_template_directory_uri();?>/images/discussion.png" alt="Generate Better Plans">
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="widget widget_rrtc_icon_text_widget">        
-					<div class="rtc-itw-holder">
-						<div class="rtc-itw-inner-holder">
-							<div class="text-holder">
-								<h2 class="widget-title" itemprop="name">Manage Projects from Start to Finish</h2>
-								<div class="content">
-									<p>Use advanced Task Management tools, Gantt Charts or Kanban Boards to create accurate plans and schedules, so each member of your team knows exactly what to do and when.</p>
-								</div>
-								<a class="btn-readmore" href="#" target="_blank">Learn More</a>                              
-							</div>
-							<div class="icon-holder">
-								<img src="<?php echo get_template_directory_uri();?>/images/focus.png" alt="Generate Better Plans">
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="widget widget_rrtc_icon_text_widget">        
-					<div class="rtc-itw-holder">
-						<div class="rtc-itw-inner-holder">
-							<div class="text-holder">
-								<h2 class="widget-title" itemprop="name">Improve Operational Efficiencies</h2>
-								<div class="content">
-									<p>Use advanced Task Management tools, Gantt Charts or Kanban Boards to create accurate plans and schedules, so each member of your team knows exactly what to do and when.</p>
-								</div>
-								<a class="btn-readmore" href="#" target="_blank">Learn More</a>                              
-							</div>
-							<div class="icon-holder">
-								<img src="<?php echo get_template_directory_uri();?>/images/growth.png" alt="Generate Better Plans">
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="widget widget_rrtc_icon_text_widget">        
-					<div class="rtc-itw-holder">
-						<div class="rtc-itw-inner-holder">
-							<div class="text-holder">
-								<h2 class="widget-title" itemprop="name">Boost Revenue Opportunities</h2>
-								<div class="content">
-									<p>Use advanced Task Management tools, Gantt Charts or Kanban Boards to create accurate plans and schedules, so each member of your team knows exactly what to do and when.</p>
-								</div>
-								<a class="btn-readmore" href="#" target="_blank">Learn More</a>                              
-							</div>
-							<div class="icon-holder">
-								<img src="<?php echo get_template_directory_uri();?>/images/money-bag.png" alt="Generate Better Plans">
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="widget widget_rrtc_icon_text_widget">        
-					<div class="rtc-itw-holder">
-						<div class="rtc-itw-inner-holder">
-							<div class="text-holder">
-								<h2 class="widget-title" itemprop="name">Keep Management &nbsp; Clients Informed</h2>
-								<div class="content">
-									<p>Use advanced Task Management tools, Gantt Charts or Kanban Boards to create accurate plans and schedules, so each member of your team knows exactly what to do and when.</p>
-								</div>
-								<a class="btn-readmore" href="#" target="_blank">Learn More</a>                              
-							</div>
-							<div class="icon-holder">
-								<img src="<?php echo get_template_directory_uri();?>/images/collaboration.png" alt="Generate Better Plans">
-							</div>
-						</div>
-					</div>
-				</section>
+
+				<?php
+					}
+				}
+				wp_reset_postdata(); //reset the post query data everytime the loop is called.
+				?>
 			</div>
 		</section> <!-- .service-section -->
 
