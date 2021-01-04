@@ -9,11 +9,18 @@ get_header('list'); ?>
 		<img src="<?php echo get_template_directory_uri(); ?>/images/banner-img.jpg" alt="banner">
 		<div class="banner-caption left">
 			<div class="container">
-				<h1 class="title">
-					<a href="#">Content Marketing & SEO Done Right</a>
+			<h1 class="title">
+					<?php
+					$cta_title = esc_attr(get_option('cta_title'));
+					echo $cta_title;
+
+					?>
 				</h1>
 				<div class="item-desc">
-					Learn how B2B and SaaS companies improve their marketing ROI through the evidence-based approach to SEO and content marketing.
+					<?php
+						$cta_description = esc_attr(get_option('cta_description'));
+						echo $cta_description;
+					?>
 					<img src="<?php echo get_template_directory_uri(); ?>/images/banner-newsletter-form.png" alt="">
 				</div>
 			</div>

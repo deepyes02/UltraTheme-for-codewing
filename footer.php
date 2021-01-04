@@ -6,48 +6,13 @@
 	<div class="top-footer">
 		<div class="container">
 			<div class="col">
-				<section class="widget widget_text">
-					<h2 class="widget-title">About</h2>
-					<div class="textwidget">
-						<p>All seven continents by 30, I wrote. I wanted to be the person that could say that. On December 16th...</p>
-					</div>
-				</section>
+				<?php get_sidebar('col_1'); ?>
 			</div>
 			<div class="col">
-				<section class="widget widget_recent_entries">
-					<h2 class="widget-title" itemprop="name">Recent Posts</h2>
-					<?php
-					$thequery = new WP_Query(array(
-						'post_type' => 'post',
-						'posts_per_page' => 4
-					));
-
-					if ($thequery->have_posts()){
-						while ($thequery->have_posts()){
-							$thequery->the_post();
-							?>
-							<li><a href="<?php echo get_the_permalink($id);?>"><?php echo the_title();?></a><br/>
-							<span><?php echo get_the_date();?></span>
-						</li>
-							<?php
-							}
-					}
-					wp_reset_postdata();
-					?>
-
-				</section>
+				<?php get_sidebar('col_2'); ?>
 			</div>
 			<div class="col">
-				<section class="widget widget_categories">
-					<h2 class="widget-title" itemprop="name">Categories</h2>
-					<?php
-					$args = array(
-						'show_count' => true,
-						'title_li'	=> ''
-					);
-					wp_list_categories($args);
-					?>
-				</section>
+				<?php get_sidebar('col_3'); ?>
 			</div>
 		</div>
 	</div> <!-- .top-footer -->

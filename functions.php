@@ -12,6 +12,7 @@ require(get_template_directory() . '/includes/theme_support.php');
 #custom post-type "Offerings"
 require(get_template_directory() . '/includes/offerings.php');
 
-
+#sidebars
+require(get_template_directory() . '/includes/sidebars.php');
 
 ?>

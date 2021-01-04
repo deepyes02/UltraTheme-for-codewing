@@ -11,24 +11,31 @@ add_action('admin_menu', 'ultra_add_admin_page');
 
        #add submenu and integrate it with main menu for wordpress like setting experience
        add_submenu_page('ultra_intro_setting', 'Ultra Intro Options', 'Author Intro', 'manage_options', 'ultra_intro_setting', 'ultra_theme_create_page');
-
-       add_submenu_page('ultra_intro_setting', 'Ultra Styling', 'Ultra Styling', 'manage_options', 'ultra-intro-styling', 'ultra_theme_styling_cb');
+       #Call to action submenu
+       add_submenu_page('ultra_intro_setting', 'Ultra Call To Action', 'Call To Action', 'manage_options', 'ultra_call_to_action', 'ultra_theme_styling_cb');
 
        add_action('admin_init', 'ultra_custom_setting');
  }
  
  function ultra_theme_styling_cb () {
-       echo "Styling Page";
+       require_once(get_template_directory() . '/includes/templates/ultra-call-to-action.php');
  }
 
 function ultra_custom_setting () {
-        #register the settings
+        #register the settings part 1
         register_setting('ultra_settings_group', 'profile_picture');
         register_setting('ultra_settings_group', 'full_name');
         register_setting('ultra_settings_group', 'description');
 
-        #ADD SECTION
+        #register the settings part 2
+        register_setting('ultra_settings_group_2', 'cta_title');
+        register_setting('ultra_settings_group_2', 'cta_description');
+
+        #ADD SECTION part 1
         add_settings_section('ultra-setting-option', 'Edit your Personal Information', 'ultra_section_title_cb', 'ultra_intro_setting');
+
+        #Add section part 2
+        add_settings_section('ultra-setting-option-2', 'Edit Your Call To Action', 'ultra_section_cta_cb', 'ultra_call_to_action');
 
         #ADD FIELD Profile Picture
         add_settings_field('ultra-settings-profile-picture', 'Profile Picture', 'ultra_profile_picture_cb', 'ultra_intro_setting', 'ultra-setting-option');
@@ -36,6 +43,34 @@ function ultra_custom_setting () {
         add_settings_field('ultra-settings-fullname', 'Display Name', 'ultra_user_name_cb', 'ultra_intro_setting', 'ultra-setting-option');
         #ADD FIELD Description
         add_settings_field('ultra-settings-description', 'Description', 'ultra_settings_description_cb', 'ultra_intro_setting', 'ultra-setting-option');
+
+        #ADD FIELD FOR CTA TITLE
+        add_settings_field('ultra-cta-title', 'CTA TITLE', 'ultra_cta_title_cb', 'ultra_call_to_action', 'ultra-setting-option-2');
+        #ADD FIELD FOR CTA Description
+        add_settings_field('ultra-cta-description', 'CTA Description', 'ultra_cta_desc_cb', 'ultra_call_to_action', 'ultra-setting-option-2');
+
+  }
+
+  function ultra_cta_title_cb () {
+        $cta_title = esc_attr(get_option('cta_title'));
+        echo '
+            <input type="text" style="width:608px;" name="cta_title" placeholder="CTA Title 30-35 characters" value="'.$cta_title.'"/>
+        ';
+  }
+  function ultra_cta_desc_cb() {
+        $cta_description = esc_attr(get_option('cta_description'));
+        echo '
+      <textarea id="cta_description" cols="85" rows="10" name="cta_description" value="' . $cta_description . '">
+      '.$cta_description.'
+      </textarea>
+        ';
+  }
+  function ultra_section_cta_cb () {
+      ?>
+      <div class="section-title">
+            <p>Call to Action are short and unique call to grasp users' attention. You can introduce a short title and subtitle to let the users know about your page and opt in for email subscription.</p>
+      </div>
+     <?php
   }
 
 

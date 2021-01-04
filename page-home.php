@@ -5,11 +5,17 @@
 		<div class="banner-caption center">
 			<div class="container">
 				<h1 class="title">
-					<a href="#">Content Marketing & SEO Done Right</a>
+					<?php
+					$cta_title = esc_attr(get_option('cta_title'));
+					echo $cta_title;
+					?>
 				</h1>
 				<div class="item-desc">
-					Learn how B2B and SaaS companies improve their marketing ROI through the evidence-based approach to SEO and content marketing.
-					<img src="<?php echo get_template_directory_uri(); ?>/images/banner-newsletter-form.png" alt="">
+					<?php
+						$cta_description = esc_attr(get_option('cta_description'));
+						echo $cta_description;
+					?>
+					<img src="<?php echo get_template_directory_uri();?>/images/banner-newsletter-form.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -90,7 +96,7 @@
 	</div>
 </section> <!-- .client-section -->
 
-<?php get_sidebar('home'); ?>
+<?php //get_sidebar('home'); ?>
 
 <section class="service-section">
 	<div class="container">
@@ -204,11 +210,9 @@
 
 					?>
 			</main><!-- .site-main -->
-
 		<?php
 				}
 				wp_reset_postdata();
-
 		?>
 
 		<nav class="navigation pagination">
@@ -253,7 +257,6 @@
 					<?php wp_get_archives(array('type' => 'monthly', 'show_post_count' => true, 'limit' => 5)); ?>
 				</ul>
 			</section>
-
 			<section class="widget widget_categories">
 				<h2 class="widget-title" itemprop="name">Categories</h2>
 				<ul>
@@ -334,7 +337,6 @@
 
 					<?php
 					}
-
 					?>
 				</div>
 			</section>

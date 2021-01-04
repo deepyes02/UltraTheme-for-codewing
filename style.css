@@ -1042,7 +1042,7 @@ COMMON CSS
 
 .page-header .page-title {
 	font-family: 'Abhaya Libre', serif;
-	font-size: 2em;
+	font-size: 3.3889em;
 	color: #000;
 	font-weight: 600;
 	margin-top: 0;
@@ -1057,7 +1057,7 @@ COMMON CSS
 }
 
 .home .page-header .page-title {
-	text-align: center;
+	text-align: left;
 }
 
 .page-desc {
@@ -1818,12 +1818,9 @@ SITE BANNER
 	font-weight: 600;
 	font-size: 4.278em;
 	line-height: 1.3;
+	color:white;
 }
 
-.banner-caption .title a {
-	color: #fff;
-	text-decoration: none;
-}
 
 .banner-caption .item-desc {
 	font-size: 1.167em;
