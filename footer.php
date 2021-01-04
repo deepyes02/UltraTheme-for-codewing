@@ -6,13 +6,20 @@
 	<div class="top-footer">
 		<div class="container">
 			<div class="col">
+				
 				<?php get_sidebar('col_1'); ?>
+				
 			</div>
 			<div class="col">
+		
+		
 				<?php get_sidebar('col_2'); ?>
+	
 			</div>
 			<div class="col">
+	
 				<?php get_sidebar('col_3'); ?>
+	
 			</div>
 		</div>
 	</div> <!-- .top-footer -->
